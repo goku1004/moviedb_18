@@ -14,11 +14,11 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
         app:tabSelectedTextColor="@color/colorPrimaryDark"
         app:tabMode="fixed"
         app:tabGravity="fill"
         android:layout_alignParentBottom="true"
-        app:tabTextAppearance="@style/Base.TextAppearance.AppCompat.Small"
-        android:background="@drawable/bg_tab_bar"/>
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"
+        android:background="@drawable/bg_tablayout"/>
 </RelativeLayout>

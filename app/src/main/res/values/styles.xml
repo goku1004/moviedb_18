@@ -5,4 +5,12 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="ItemMenu" parent="TextAppearance.Design.HelperText">
+        <item name="android:layout_marginLeft">@dimen/dp_30</item>
+        <item name="android:layout_marginTop">@dimen/dp_10</item>
+        <item name="android:layout_marginBottom">@dimen/dp_10</item>
+        <item name="android:layout_marginRight">@dimen/dp_30</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
 </resources>
