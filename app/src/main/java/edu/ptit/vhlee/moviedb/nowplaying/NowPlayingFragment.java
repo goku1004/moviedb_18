@@ -18,7 +18,8 @@ import edu.ptit.vhlee.moviedb.R;
 import edu.ptit.vhlee.moviedb.data.config.Constant;
 import edu.ptit.vhlee.moviedb.data.model.Movie;
 
-public class NowPlayingFragment extends Fragment implements MovieContract.View{
+
+public class NowPlayingFragment extends Fragment implements MovieContract.View {
     private RecyclerView recyclerView;
     private MoviePresenter mMoviePresenter;
     private MovieAdapter mMovieAdapter;
@@ -35,9 +36,9 @@ public class NowPlayingFragment extends Fragment implements MovieContract.View{
         getDataPage();
         return view;
     }
+
     public void init(View view) {
         recyclerView = view.findViewById(R.id.recyclerview);
-        initAdapter();
     }
 
     public void getDataPage() {
@@ -45,25 +46,26 @@ public class NowPlayingFragment extends Fragment implements MovieContract.View{
         while (pageNum < Constant.Common.TOTAL_PAGE) {
             mMoviePresenter.getUpcommingMovies(String.format
                     (Constant.Url.URL,Constant.Common.TYPE_NOWPLAYING,Constant.Common.LANGUAGE_ENG
-                            ,String.valueOf(++pageNum)));
+                            ,++pageNum));
         }
     }
 
-    public void initAdapter(){
-        mMovieAdapter = new MovieAdapter(getActivity());
+    public void initAdapter(ArrayList<Movie> movies) {
+        mMovieAdapter = new MovieAdapter(getActivity(),movies);
         GridLayoutManager gridLayoutManager =
                 new GridLayoutManager(getActivity(), Constant.Common.NUM_SPAN);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(mMovieAdapter);
+        mMovieAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void showNoResult(ArrayList<Movie> movies, Exception ex) {
-        Toast.makeText(getActivity(),Constant.Common.MSG_NO_RESULT,Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), Constant.Common.MSG_NO_RESULT, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void showSuccess(ArrayList<Movie> movies) {
-        mMovieAdapter.addData(movies);
+        initAdapter(movies);
     }
 }

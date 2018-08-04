@@ -20,9 +20,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     private Context mContext;
     private ArrayList<Movie> mMovies;
 
-    public MovieAdapter(Context mContext) {
+    public MovieAdapter(Context mContext, ArrayList<Movie> mMovies) {
         this.mContext = mContext;
-        this.mMovies = new ArrayList<>();
+        this.mMovies = mMovies;
     }
 
     @NonNull
@@ -63,9 +63,5 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                     .load(name)
                     .into(mImageBackdrop);
         }
-    }
-    public void addData(ArrayList<Movie> movies){
-        mMovies.addAll(movies);
-        notifyDataSetChanged();
     }
 }

@@ -38,7 +38,6 @@ public class UpcomingFragment extends Fragment implements MovieContract.View {
 
     public void init(View view) {
         recyclerView = view.findViewById(R.id.recyclerview);
-        initAdapter();
     }
 
     public void getDataPage() {
@@ -46,16 +45,18 @@ public class UpcomingFragment extends Fragment implements MovieContract.View {
         while (pageNum < Constant.Common.TOTAL_PAGE) {
             mMoviePresenter.getUpcommingMovies(String.format
                     (Constant.Url.URL, Constant.Common.TYPE_UPCOMING, Constant.Common.LANGUAGE_ENG
-                            , String.valueOf(++pageNum)));
+                            , ++pageNum));
         }
     }
 
-    public void initAdapter() {
-        mMovieAdapter = new MovieAdapter(getActivity());
+    public void initAdapter(ArrayList<Movie> movies) {
+        mMovieAdapter = new MovieAdapter(getActivity(),movies);
         GridLayoutManager gridLayoutManager =
                 new GridLayoutManager(getActivity(), Constant.Common.NUM_SPAN);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(mMovieAdapter);
+        mMovieAdapter.notifyDataSetChanged();
+
     }
 
     @Override
@@ -65,7 +66,7 @@ public class UpcomingFragment extends Fragment implements MovieContract.View {
 
     @Override
     public void showSuccess(ArrayList<Movie> movies) {
-        mMovieAdapter.addData(movies);
+        initAdapter(movies);
     }
 }
 
