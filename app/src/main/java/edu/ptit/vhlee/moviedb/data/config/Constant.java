@@ -2,19 +2,29 @@ package edu.ptit.vhlee.moviedb.data.config;
 
 import edu.ptit.vhlee.moviedb.BuildConfig;
 
-public class Constant {
+public interface Constant {
 
-    public class Common {
-        public static final String URL_IMGE = "https://image.tmdb.org/t/p/w500";
-        public static final String API_KEY = BuildConfig.API_KEY;
-        public static final String URL_API = "https://api.themoviedb.org/3/movie/upcoming?api_key="
-                + API_KEY + "&language=en-US&page=";
-        public static final String RESULT = "results";
-        public static final String TITLE = "title";
-        public static final String POSTER_PATH = "poster_path";
-        public static final String MSG_NO_RESULT = "Cannot load data";
-        public static final int NUM_SPAN = 3;
-        public static final int TOTAL_PAGE = 3;
-
+    interface Common {
+        String LANGUAGE_ENG = "en-US";
+        String TYPE_NOWPLAYING = "now_playing";
+        String TYPE_POPULAR = "popular";
+        String TYPE_TOP_RATE = "top_rated";
+        String TYPE_UPCOMING = "upcoming";
+        String URL_BASE = "https://api.themoviedb.org/3/movie/";
+        String URL_KEY = "?api_key=";
+        String URL_LANGUAGE = "&language=";
+        String URL_PAGE = "&page=";
+        String URL_IMGE = "https://image.tmdb.org/t/p/w500";
+        String API_KEY = BuildConfig.API_KEY;
+        String RESULT = "results";
+        String TITLE = "title";
+        String POSTER_PATH = "poster_path";
+        String MSG_NO_RESULT = "Cannot load data";
+        int NUM_SPAN = 3;
+        int TOTAL_PAGE = 3;
+    }
+    interface Url {
+        String URL = Common.URL_BASE + "%s" + Common.URL_KEY
+                + Common.API_KEY + Common.URL_LANGUAGE + "%s" + Common.URL_PAGE+"%d";
     }
 }

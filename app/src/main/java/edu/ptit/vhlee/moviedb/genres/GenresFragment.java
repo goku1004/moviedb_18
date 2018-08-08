@@ -17,6 +17,7 @@ public class GenresFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_genres, container, false);
+        View view = inflater.inflate(R.layout.fragment_genres, container, false);
+        return view;
     }
 }

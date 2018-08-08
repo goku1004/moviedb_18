@@ -1,4 +1,4 @@
-package edu.ptit.vhlee.moviedb.upcoming;
+package edu.ptit.vhlee.moviedb;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -13,15 +13,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import edu.ptit.vhlee.moviedb.R;
 import edu.ptit.vhlee.moviedb.data.config.Constant;
 import edu.ptit.vhlee.moviedb.data.model.Movie;
 
-public class UpcommingAdapter extends RecyclerView.Adapter<UpcommingAdapter.ViewHolder> {
+public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
     private Context mContext;
     private ArrayList<Movie> mMovies;
 
-    public UpcommingAdapter(Context mContext, ArrayList<Movie> mMovies) {
+    public MovieAdapter(Context mContext, ArrayList<Movie> mMovies) {
         this.mContext = mContext;
         this.mMovies = mMovies;
     }
