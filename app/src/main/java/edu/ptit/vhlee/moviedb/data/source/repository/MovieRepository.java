@@ -13,7 +13,7 @@ public class MovieRepository {
         this.mMovieRemoteData = new MovieRemoteData();
     }
 
-    public ArrayList<Movie> getMoviesDemo(String url, MovieDataSource.Callback callback) {
+    public ArrayList<Movie> getMovies(String url, MovieDataSource.Callback callback) {
         return mMovieRemoteData.getMovies(url, callback);
     }
 }
