@@ -1,10 +1,10 @@
-package edu.ptit.vhlee.moviedb.upcoming;
+package edu.ptit.vhlee.moviedb;
 
 import java.util.ArrayList;
 
 import edu.ptit.vhlee.moviedb.data.model.Movie;
 
-public interface UpcomingContract {
+public interface MovieContract {
     interface Presenter {
         ArrayList<Movie> getUpcommingMovies(String url);
     }
